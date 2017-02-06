@@ -123,6 +123,18 @@ func getJCUserFieldsFromInterface(fields map[string]interface{}, user *JCUser) e
 
 	user.Sudo = fields["sudo"].(bool)
 
+	if _, exists := fields["passwordless_sudo"]; exists {
+		user.PasswordlessSudo = fields["passwordless_sudo"].(bool)
+	} else {
+		user.PasswordlessSudo = false
+	}
+
+	if _, exists := fields["public_key"]; exists {
+		user.PublicKey = fields["public_key"].(string)
+	} else {
+		user.PublicKey = ""
+	}
+
 	if _, exists := fields["external_dn"]; exists {
 		user.ExternalDN = fields["external_dn"].(string)
 	}
