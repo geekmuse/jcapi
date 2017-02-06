@@ -28,6 +28,9 @@ type JCUser struct {
 	PasswordExpirationDate time.Time `json:"password_expiration_date,omitempty"`
 	PendingProvisioning    bool      `json:"pendingProvisioning,omitempty"`
 	Sudo                   bool      `json:"sudo"`
+	PasswordlessSudo	   bool      `json:"passwordless_sudo"`
+	AllowPublicKey 		   bool      `json:"allow_public_key"`
+	PublicKey              string    `json:"public_key"`
 	Uid                    string    `json:"unix_uid"`
 	Gid                    string    `json:"unix_guid"`
 	EnableManagedUid       bool      `json:"enable_managed_uid"`
