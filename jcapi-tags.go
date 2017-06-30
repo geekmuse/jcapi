@@ -17,13 +17,13 @@ type JCTagResults struct {
 type JCTag struct {
 	Id                 string   `json:"_id,omitempty"`
 	Name               string   `json:"name"`
-	GroupName          string   `json:"groupname"`
-	Systems            []string `json:"systems"`
-	SystemUsers        []string `json:"systemusers"`
-	RegularExpressions []string `json:"regularExpressions"`
-	ExpirationTime     string   `json:"expirationTime"`
-	Expired            bool     `json:"expired"`
-	Selected           bool     `json:"selected"`
+	GroupName          string   `json:"groupname,omitempty"`
+	Systems            []string `json:"systems,omitempty"`
+	SystemUsers        []string `json:"systemusers,omitempty"`
+	RegularExpressions []string `json:"regularExpressions,omitempty"`
+	ExpirationTime     string   `json:"expirationTime,omitempty"`
+	Expired            bool     `json:"expired,omitempty"`
+	Selected           bool     `json:"selected,omitempty"`
 
 	//
 	// For identification as an external user directory source
