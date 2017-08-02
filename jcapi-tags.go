@@ -17,13 +17,15 @@ type JCTagResults struct {
 type JCTag struct {
 	Id                 string   `json:"_id,omitempty"`
 	Name               string   `json:"name"`
-	GroupName          string   `json:"groupname,omitempty"`
+	GroupName          string   `json:"groupName,omitempty"`
+	GroupGid           string   `json:"groupGid,omitempty"`
 	Systems            []string `json:"systems,omitempty"`
 	SystemUsers        []string `json:"systemusers,omitempty"`
 	RegularExpressions []string `json:"regularExpressions,omitempty"`
 	ExpirationTime     string   `json:"expirationTime,omitempty"`
 	Expired            bool     `json:"expired,omitempty"`
 	Selected           bool     `json:"selected,omitempty"`
+	SendToLDAP         bool     `json:"sendToLDAP,omitempty"`
 
 	//
 	// For identification as an external user directory source
@@ -36,8 +38,8 @@ type JCTag struct {
 }
 
 func (tag JCTag) ToString() string {
-	return fmt.Sprintf("tag id=%s - name='%s' - groupName='%s' - expires='%s' - systems='%s' - systemusers='%s' - applyToJC='%t' - externally_managed='%t' (%s)",
-		tag.Id, tag.Name, tag.GroupName, tag.ExpirationTime, strings.Join(tag.Systems, ","),
+	return fmt.Sprintf("tag id=%s - name='%s' - groupGid='%s' - groupName='%s' - expires='%s' - systems='%s' - systemusers='%s' - sendToLDAP='%t' - applyToJC='%t' - externally_managed='%t' (%s)",
+		tag.Id, tag.Name, tag.GroupGid, tag.GroupName, tag.ExpirationTime, tag.SendToLDAP, strings.Join(tag.Systems, ","),
 		strings.Join(tag.SystemUsers, ","), tag.ApplyToJumpCloud, tag.ExternallyManaged, tag.ExternalDN)
 }
 
